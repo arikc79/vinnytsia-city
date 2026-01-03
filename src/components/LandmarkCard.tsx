@@ -1,4 +1,4 @@
-import type{ Landmark } from "../data/landmarks";
+import type { Landmark } from "../data/landmarks";
 
 interface Props {
   landmark: Landmark;
@@ -6,17 +6,24 @@ interface Props {
 
 const LandmarkCard = ({ landmark }: Props) => {
   return (
-    <div className="border rounded-lg p-4 shadow hover:shadow-md transition">
-      <h3 className="text-lg font-semibold mb-2">
-        {landmark.title}
-      </h3>
+    <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition">
+      <img
+        src={landmark.image}
+        alt={landmark.title}
+        className="w-full h-40 object-cover"
+      />
 
-      <p className="text-sm text-gray-600">
-        Wikipedia key: <span className="italic">{landmark.wikiTitle}</span>
-      </p>
+      <div className="p-4">
+        <h3 className="text-lg font-semibold mb-2">
+          {landmark.title}
+        </h3>
+
+        <p className="text-sm text-gray-600">
+          {landmark.description}
+        </p>
+      </div>
     </div>
   );
 };
 
 export default LandmarkCard;
-

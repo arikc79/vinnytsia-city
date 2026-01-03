@@ -1,7 +1,17 @@
 export interface CommonsImage {
   id: string;
   title: string;
-  thumbnail: string;
+  thumbnail?: string;
+}
+
+interface ApiResponse {
+  query: {
+    pages: Record<string, {
+      pageid: number;
+      title: string;
+      imageinfo?: Array<{ thumburl: string }>;
+    }>;
+  };
 }
 
 export const fetchVinnytsiaImages = async (): Promise<CommonsImage[]> => {
@@ -21,12 +31,12 @@ export const fetchVinnytsiaImages = async (): Promise<CommonsImage[]> => {
   const resp = await fetch(url);
   if (!resp.ok) throw new Error("Failed to fetch images");
 
-  const data = await resp.json();
-  const pages = data?.query?.pages || {};
+  const data: ApiResponse = await resp.json();
+  const pages = data.query.pages;
 
-  return Object.values(pages).map((p: any) => ({
+  return Object.values(pages).map((p) => ({
     id: String(p.pageid),
     title: p.title,
     thumbnail: p.imageinfo?.[0]?.thumburl,
-  })).filter((i: any) => i.thumbnail);
+  })).filter((i) => i.thumbnail);
 };

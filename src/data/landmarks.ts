@@ -1,25 +1,34 @@
+import roshenImg from "../assets/roshen.jpg";
+import pyrogovImg from "../assets/pyrogov.jpg";
+import artynovImg from "../assets/artynov.jpg";
+
 export interface Landmark {
   id: number;
   title: string;
-  wikiTitle: string;
+  description: string;
+  image: string;
 }
 
 export const landmarks: Landmark[] = [
   {
     id: 1,
     title: "Фонтан Roshen",
-   
-    // ✅ Vinnytsia Roshen Multimedia Fountain — стабільна
-    wikiTitle: "Vinnytsia Roshen Multimedia Fountain",
+    description:
+      "Світломузичний плавучий фонтан на річці Південний Буг — головна туристична візитівка Вінниці. Унікальність фонтана «Рошен» полягає в тому, що він використовує «живу» воду річки, а не штучної водойми чи басейну. Холодної пори року він занурюється для зимування під водну товщу..",
+    image: roshenImg,
   },
   {
     id: 2,
     title: "Музей-садиба Пирогова",
-    wikiTitle: "National Pirogov Memorial Medical Museum",
+    description:
+      "Національний музей, присвячений видатному хірургу та вченому Миколі Пирогову.Музейно-садибний комплекс, присвячений життю та діяльності видатного лікаря-хірурга, розташований у мальовничій місцині, неподалік Вишенського озера. Сьогодні це не тільки визначна культурна пам’ятка Вінниці, а й один із найпопулярніших туристичних об’єктів міста.",
+    image: pyrogovImg,
   },
   {
     id: 3,
     title: "Вежа Артинова",
-    wikiTitle: "Artinov Tower",
+    description:
+      "Парк довкола площі розташований в самому центрі міста і є одним із найулюбленіших місць для відпочинку. Саме тут розташована водонапірна вежа Артинова, основний символ Вінниці, її візитівка.",
+    image: artynovImg,
   },
 ];
